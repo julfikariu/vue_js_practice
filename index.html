@@ -4,23 +4,43 @@
         <meta charset="UTF-8">
         <title>Learn vue js</title>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <style>
+            htnl, body {
+                height: 100vh;
+            }
+
+            body {
+                display: grid;
+                place-items: center;
+            }
+
+            .text-green {
+                color:green;
+            }
+            .text-red {
+                background: red;
+                padding: 20px;
+            }
+        </style>
     </head>
+
     <body>
         <div id="app">
-            <input type="text" name="msg" v-model="msg">
-
-            <h1>{{ msg }}</h1>
-            {{ greating }}
+            <button :class="active ? 'text-green' : 'text-red'" @:click="toggle">Click Me </button>
         </div>
 
         <script>
 
             Vue.createApp({
                 data() {
-                  
                     return {
-                        greating: 'What is up',
-                        msg: 'a msg'
+                       active: false
+                    }
+                },
+
+                methods: {
+                    toggle () {
+                        this.active = ! this.active;
                     }
                 }
             }).mount('#app')
