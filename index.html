@@ -25,61 +25,13 @@
         </style>
     </head>
 
-    <body>
-        <div id="app">
-            <section v-show="inprogressAssignment.length">
-                <h2>In progress Task</h2>
-                <ul class="list-group">
-                    <li class="list-group-item" v-for="assignment in inprogressAssignment" :key="assignment.id"> 
-                        <label>
-                            {{ assignment.name}} 
-                            <input type="checkbox" v-model="assignment.completed">
-                        </label>
-                    </li>
-                </ul>
-            </section>
+    <body class="bg-secondary">
+        <div id="app"></div>
 
-            <section v-show="completedAssignment.length">
-                <h2 class="mt-4">Completed Task</h2>
-                <ul class="list-group">
-                    <li class="list-group-item" v-for="assignment in completedAssignment" :key="assignment.id"> 
-                        <label>
-                            {{ assignment.name}} 
-                            <input type="checkbox" v-model="assignment.completed">
-                        </label>
-                    </li>
-                </ul>
-            </section>
-            
-        </div>
-
-        <script>
-
-            const app = {
-                data() {
-                    return {
-                        assignments: [
-                            { name:"First", completed: false, id:1 },
-                            { name:"Second", completed: false, id:2 },
-                            { name:"Third", completed: false, id:3 },
-                        ]
-                    }                    
-                },
-                computed: {
-                    inprogressAssignment() {
-                        return this.assignments.filter(assignment => !assignment.completed);
-                    },
-                    completedAssignment() {
-                        return this.assignments.filter(assignment => assignment.completed);
-                    },
-                },
-
-                methods: {
-                    
-                }
-            };
+        <script type="module">
+            import App from './js/components/App.js'
                
-            Vue.createApp(app).mount('#app')
+            Vue.createApp(App).mount('#app')
         </script>
     </body>
 </html>
