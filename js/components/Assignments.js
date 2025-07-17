@@ -13,10 +13,10 @@ export default {
     data() {
         return {
             assignments: [
-                { name:"This is first assignment", completed: false, id:1 },
-                { name:"Second assignment for", completed: false, id:2 },
-                { name:"The third design model", completed: false, id:3 },
-                { name:"Forth project assign", completed: false, id:4 },
+                { name:"This is first assignment", completed: false, id:1, tag:'CSE' },
+                { name:"Second assignment for", completed: false, id:2, tag:'Science' },
+                { name:"The third design model", completed: false, id:3, tag:'English' },
+                { name:"Forth project assign", completed: false, id:4, tag:'CSE' },
             ],
 
             newAssignment:'',
