@@ -1,7 +1,7 @@
 export default {
     template:`
         <button
-            @click="$emit('change', tag)"
+            @click="$emit('update:currentTag', tag)"
             v-for="tag in tags" 
             class="btn btn-sm btn-primary mr-1 mb-2"
             :class="{

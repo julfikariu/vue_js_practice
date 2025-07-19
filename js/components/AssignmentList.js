@@ -11,8 +11,7 @@ export default {
 
         <assignment-tag
             :initial-tags="assignments.map(a => a.tag)"
-            :current-tag="currentTag"
-            @change="currentTag = $event"
+            v-model:currentTag="currentTag"
         ></assignment-tag>
 
         <ul class="list-group">
@@ -23,11 +22,13 @@ export default {
             ></assignment>
         </ul>
     </section>
+
     `,
     props:{
         assignments: Array,
         title: String
     },
+
     data(){
         return {
             currentTag:'All'

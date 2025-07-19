@@ -12,15 +12,17 @@ export default {
     `,
     data() {
         return {
-            assignments: [
-                { name:"This is first assignment", completed: false, id:1, tag:'CSE' },
-                { name:"Second assignment for", completed: false, id:2, tag:'Science' },
-                { name:"The third design model", completed: false, id:3, tag:'English' },
-                { name:"Forth project assign", completed: false, id:4, tag:'CSE' },
-            ],
+            assignments: [],
 
             newAssignment:'',
         }                    
+    },
+    created() {
+        fetch('http://localhost:3001/assignments')
+            .then(response => response.json())
+            .then(assignments => {
+                this.assignments = assignments;
+            });
     },
     computed: {
         filterTask() {
